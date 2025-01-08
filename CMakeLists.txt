@@ -15,3 +15,5 @@ add_executable(thread_main_2 ${SOURCES} thread_main_2.cpp)
 
 add_executable(mutex_main_1 ${SOURCES} mutex_main_1.cpp)
 add_executable(mutex_main_2 ${SOURCES} mutex_main_2.cpp)
+
+add_executable(cond_main_1 ${SOURCES} cond_main_1.cpp)
