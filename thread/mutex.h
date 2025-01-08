@@ -8,6 +8,7 @@ namespace melon
   {
     class Mutex
     {
+      friend class Cond;
     public:
       Mutex();
       ~Mutex();
