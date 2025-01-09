@@ -55,7 +55,7 @@ void WorkerThread::run()
     m_task->destroy();
     m_task = nullptr;
 
-    Singleton<ThreadPool>::getInstance()->put(this);
+    Singleton<ThreadPool>::getInstance()->push(this);
    
     // restore state
     rc = pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, &old_state);
