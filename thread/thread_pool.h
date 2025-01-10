@@ -1,11 +1,12 @@
 #pragma once
 
+#include <list>
 #include "thread/auto_lock.h"
 #include "thread/worker_thread.h"
 
 using namespace melon::thread;
 
-#include "thread/singleton.h"
+#include "utility/singleton.h"
 using namespace melon::utility;
 
 namespace melon

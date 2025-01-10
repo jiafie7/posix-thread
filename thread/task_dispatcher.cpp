@@ -1,4 +1,4 @@
-#include "task/task_dispatcher.h"
+#include "thread/task_dispatcher.h"
 
 using namespace melon::thread;
 
@@ -17,6 +17,7 @@ bool TaskDispatcher::empty()
 
 void TaskDispatcher::push(Task* task)
 {
+  log_debug("task dispatcher get task: %x", task);
   AutoLock lock(&m_mutex);
 
   m_tasks.push_back(task);
@@ -52,13 +53,16 @@ void TaskDispatcher::run()
     return;
   }
 
-  AutoLock lock(&m_mutex);
+  while (true)
+  {
+    AutoLock lock(&m_mutex);
 
-  if (m_tasks.empty())
-    m_cond.wait(&m_mutex);
+    if (m_tasks.empty())
+      m_cond.wait(&m_mutex);
   
-  Task* task = m_tasks.front();
-  m_tasks.pop_front();
+    Task* task = m_tasks.front();
+    m_tasks.pop_front();
 
-  dispatch();
+    dispatch(task);
+  }
 }

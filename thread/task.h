@@ -9,7 +9,7 @@ namespace melon
     public:
       Task();
       Task(void* data);
-      ~Task();
+      virtual ~Task();
       
       void* getData();
       void setData(void* data);

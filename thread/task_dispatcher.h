@@ -15,7 +15,7 @@ namespace melon
       void init(int threads);
       bool empty();
 
-      void assign(Task* task);
+      void push(Task* task);
 
       void dispatch(Task* task);
 
