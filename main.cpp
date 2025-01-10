@@ -1,7 +1,7 @@
 #include "thread/task_dispatcher.h"
 using namespace melon::thread;
 
-#include "task/test_task.h"
+#include "task/print_task.h"
 using namespace melon::task;
 
 int main()
@@ -17,7 +17,7 @@ int main()
     int* data = new int;
     *data = i;
 
-    TestTask* task = new TestTask(data);
+    PrintTask* task = new PrintTask(data);
 
     Singleton<TaskDispatcher>::getInstance()->push(task);
   }

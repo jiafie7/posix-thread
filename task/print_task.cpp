@@ -1,15 +1,15 @@
-#include "task/test_task.h"
+#include "task/print_task.h"
 
 using namespace melon::task;
 
-void TestTask::run()
+void PrintTask::run()
 {  
   std::cout << "task run." << '\n';
   int* data = static_cast<int*>(m_data);
   std::cout << "data: " << *data << '\n';
 }
  
-void TestTask::destroy()
+void PrintTask::destroy()
 {
   std::cout << "task destroy." << '\n';
   delete static_cast<int*>(m_data);

@@ -9,13 +9,13 @@ namespace melon
 {
   namespace task
   {
-    class TestTask : public Task
+    class PrintTask : public Task
     {
     public:
-      TestTask(int* data)
+      PrintTask(int* data)
         : Task((void*)data)
       {}
-      ~TestTask() = default;
+      ~PrintTask() = default;
 
       virtual void run();
 
